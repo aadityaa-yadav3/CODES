@@ -1,0 +1,1 @@
+{"name":"Local: SubsetSumKnapsack","url":"m:\\CODING\\CODES\\Dynamic Programming\\SubsetSumKnapsack.py","tests":[{"id":1692056227708,"input":"2\n5\n1 3 5 7 9\n8\n5\n1 3 5 7 9\n2","output":"True\nFalse"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"m:\\CODING\\CODES\\Dynamic Programming\\SubsetSumKnapsack.py","group":"local","local":true}

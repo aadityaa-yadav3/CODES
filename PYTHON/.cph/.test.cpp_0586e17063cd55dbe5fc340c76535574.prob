@@ -1,0 +1,1 @@
+{"name":"Local: test","url":"m:\\CODING\\CODES\\PYTHON\\test.cpp","tests":[{"id":1692210766035,"input":"4\n)(\n(()\n()\n))()","output":"YES\n(())\nYES\n()()()\nNO\nYES\n()(()())"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"m:\\CODING\\CODES\\PYTHON\\test.cpp","group":"local","local":true}

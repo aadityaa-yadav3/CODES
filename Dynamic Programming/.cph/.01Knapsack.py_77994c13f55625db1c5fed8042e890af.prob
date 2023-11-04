@@ -1,0 +1,1 @@
+{"name":"Local: 01Knapsack","url":"m:\\CODING\\CODES\\Dynamic Programming\\01Knapsack.py","tests":[{"id":1688224910610,"input":"1\n5\n1 2 3 4 5\n1 2 3 4 5\n10","output":"10"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"m:\\CODING\\CODES\\Dynamic Programming\\01Knapsack.py","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: Ques2","url":"m:\\CODING\\CODES\\Codeforces\\Div.2\\29-04-2023\\Ques2.py","tests":[{"id":1682781356166,"input":"3\n1\n2\n3","output":"1\n1 2\n-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"m:\\CODING\\CODES\\Codeforces\\Div.2\\29-04-2023\\Ques2.py","group":"local","local":true}

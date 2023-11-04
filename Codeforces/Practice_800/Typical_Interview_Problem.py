@@ -1,0 +1,1 @@
+for _ in range(int(input())):input();print("YES" if input() in "FBFFBFFB"*3 else "NO")
