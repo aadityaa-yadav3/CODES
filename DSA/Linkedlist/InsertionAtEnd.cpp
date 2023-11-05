@@ -21,9 +21,9 @@ void insertAtEnd(int data, struct node** head){
 
         newnode->val = data;
         newnode->next = NULL;
-
         *head = newnode;
     }
+
     else {
         struct node *tmp = *head;
 
