@@ -1,14 +1,14 @@
 import cv2 as cv
 import numpy as np
 
-capture = cv.VideoCapture('C:/Users/hp/Downloads/drive.mp4', )
+capture = cv.VideoCapture('C:/Users/hp/Downloads/videoplayback.mp4', )
 
 while True:
 
     # capturing each frame from the video one by one
     ed, frame = capture.read()
     if not ed:
-        capture = cv.VideoCapture('C:/Users/hp/Downloads/drive.mp4', )
+        capture = cv.VideoCapture('C:/Users/hp/Downloads/videoplayback.mp4', )
         continue
 
     # applying blur to the frame
@@ -27,7 +27,7 @@ while True:
     canny = cv.Canny(mask, 100, 120)
 
     # using hough transform to get the lines of lane
-    lines = cv.HoughLinesP(canny, rho = 2, theta = 1*np.pi/180, threshold = 50, minLineLength = 10, maxLineGap = 20)
+    lines = cv.HoughLinesP(canny, rho = 2, theta = 1*np.pi/180, threshold = 20, minLineLength = 10, maxLineGap = 10)
     if lines is not None:
         for i in lines:
             x1, x2, y1, y2 = i[0]
