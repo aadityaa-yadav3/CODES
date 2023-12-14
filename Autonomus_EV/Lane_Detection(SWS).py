@@ -12,6 +12,7 @@ def read_video(video_path):
     video = cv2.VideoCapture(video_path)
     return video
 
+###########     applpying filters on the image to get the edges     ##################3333333
 def process_image(image):
     # Apply HLS color filtering to filter out white lane lines
     hls = cv2.cvtColor(image, cv2.COLOR_BGR2HLS)
@@ -28,6 +29,8 @@ def process_image(image):
 
     return image, white_lines, gray, thresh, blur, canny
 
+
+#########   Transforming normal image to Top-Down view   ###################
 def perspective_warp(image):
     # Define perspective transformation points
     src = np.float32([[600, 540], [685, 540], [200, 720], [805, 720]])
@@ -42,6 +45,8 @@ def perspective_warp(image):
 
     return birdseye, inverse_matrix
 
+
+###########     Plotting the Histogram to find the starting of lanes    ####################
 def plot_histogram(image):
     histogram = np.sum(image[image.shape[0] // 2:, :], axis=0)
     midpoint = np.int_(histogram.shape[0] / 2)
@@ -50,6 +55,8 @@ def plot_histogram(image):
 
     return histogram, leftx_base, rightx_base
 
+
+##########      Applying Sliding Window Search to track the Lanes   #######################
 def slide_window_search(binary_warped, histogram):
     # Implementation of sliding window search
     out_img = np.dstack((binary_warped, binary_warped, binary_warped)) * 255
@@ -119,6 +126,8 @@ def slide_window_search(binary_warped, histogram):
 
     return ploty, left_fit, right_fit, left_fitx, right_fitx
 
+
+########    applying general search to further look for the pixels inside the sliding window    ##########
 def general_search(binary_warped, left_fit, right_fit):
     nonzero = binary_warped.nonzero()
     nonzeroy = np.array(nonzero[0])
@@ -165,6 +174,7 @@ def general_search(binary_warped, left_fit, right_fit):
     return ret
 
 
+###########     Drawing lane lines back on the original image for viewing   ###############
 def draw_lane_lines(original_image, warped_image, minv, draw_info):
     leftx = draw_info['leftx']
     rightx = draw_info['rightx']
@@ -192,6 +202,7 @@ def draw_lane_lines(original_image, warped_image, minv, draw_info):
     return pts_mean, result
 
 
+#########   Calculating Lnae Curvature  ###########
 def measure_lane_curvature(ploty, leftx, rightx):
     leftx = leftx[::-1]  # Reverse to match top-to-bottom in y
     rightx = rightx[::-1]  # Reverse to match top-to-bottom in y
@@ -218,6 +229,7 @@ def measure_lane_curvature(ploty, leftx, rightx):
     return (left_curverad + right_curverad) / 2.0, curve_direction
 
 
+############    Calculating how off center is the lane  ###############
 def off_center(mean_pts, inp_frame):
 
     mean_x_bottom = mean_pts[-1][-1][-2].astype(int)
@@ -227,6 +239,8 @@ def off_center(mean_pts, inp_frame):
 
     return deviation, direction
 
+
+###########     adding text for viewing     #############
 def add_text(img, radius, direction, deviation, dev_direction):
     font = cv2.FONT_HERSHEY_SIMPLEX
 
