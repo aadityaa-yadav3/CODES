@@ -1,0 +1,48 @@
+<HomeLayout>:
+    background_color: (0, 0, 0, 1.0)
+    MenuLayout:
+    BoxLayout:
+        orientation: "vertical"
+        GridLayout:
+            cols: 3
+            size_hint: 1, 0.1
+            Button:
+                text: "menu"
+                on_press: root.callMenu()
+                size_hint: 0.1, 0.1
+            Label:
+                text: "Name"
+            Button:
+                text: "profile"
+                size_hint: 0.1, 0.1
+        TabbedPanel:
+            tab_pos: 'bottom_mid'
+            tab_padding: 10, 10
+            tab_width: self.parent.width/2
+            background_color: (0, 0, 0, 1.0)
+            do_default_tab: False
+
+            TabbedPanelItem:
+                text: "1st tab"
+                Label:
+                    text: "add calander part here!"
+            TabbedPanelItem:
+                text: "2nd tab"
+                Label:
+                    text: "add attendance part here!"
+
+
+<MenuLayout>:
+    BoxLayout:
+        size_hint: 0.1,0.5
+        pos_hint: {"top": 1}
+        orientation: "vertical"
+        Label:
+            size_hint: 0.1, 1
+            text: "menu"
+        Button:
+            text: "a"
+        Button:
+            text: "b"
+        Button:
+            text: "c"
